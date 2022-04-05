@@ -68,7 +68,7 @@ Where *restaurant_detail* is a JSON structure that contains all currently availa
 - restaurant_email *string*
 - restaurant_website *string*
 - **restaurant_spw_url** *string*
-- **restaurant_spw_type** *string* [ member | curated | stock ]
+- **restaurant_spw_type** *string* [ member / curated / stock ]
 - restaurant_facebook *string*
 - restaurant_twitter *string*
 - restaurant_instagram *string*
