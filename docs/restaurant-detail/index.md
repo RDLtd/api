@@ -1,6 +1,6 @@
 # Restaurant Detail
 
-Access the full data set for restaurant
+Access the core data set for restaurant
 
 * **URL**
 
