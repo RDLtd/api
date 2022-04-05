@@ -1,6 +1,6 @@
 # RDL API Documentation
 
-- ### [Restaurant Detail](https://rdltd.github.io/api/docs/restaurant-detail/)
+- ### [Restaurant Detail](https://rdltd.github.io/api/restaurant-detail/)
 
 - 
 
