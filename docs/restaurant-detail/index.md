@@ -33,7 +33,7 @@ Access the full data set for restaurant
     
 
 ---
- 
+
 **Successful Responses**
 
 **200 OK**
@@ -175,7 +175,7 @@ As would appear in an Angular service
  }
 ```
 ---
- 
+
 
 ### Examples of Use
 
@@ -253,19 +253,19 @@ Images are served by the Cloudinary CDN and can be requested at any size. An `ht
 ```
 <restaurant_image_cdn> + <restaurant_image_path>
 ```
-e.g. [https://res.cloudinary.com/rdl/image/upload/restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg](https://rdltd.github.io/api/restaurant-detail/)
+e.g. https://res.cloudinary.com/rdl/image/upload/restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg
 
 2. **400 x 300px image** (centre cropped/filled)
 
 ```
 <restaurant_image_cdn> + 'c_fill,w_400,h_300' + <restaurant_image_path>
 ```
-e.g. [https://res.cloudinary.com/rdl/image/upload/c_fill,w_400,h_300/restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg](https://rdltd.github.io/api/restaurant-detail/)
+e.g. https://res.cloudinary.com/rdl/image/upload/c_fill,w_400,h_300/restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg
 
 3. **Square 120px thumbnail image**  (centre cropped/filled)
 
 ```v1649075679/restaurants/<restaurant_number>/<restaurant_image>
 <restaurant_image_cdn> + 'c_fill,w_120,h_120' + <restaurant_image_path>
 ```
-e.g. [https://res.cloudinary.com/rdl/image/upload/c_fill,w_120,h_120/restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg](https://rdltd.github.io/api/restaurant-detail/)
+e.g. https://res.cloudinary.com/rdl/image/upload/c_fill,w_120,h_120/restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg
 
