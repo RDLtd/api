@@ -248,20 +248,20 @@ returns *restaurant_detail*:
 
 Images are served by the Cloudinary CDN and can be requested at any size. An `https` request can be constructed as follows:
 
- 1. **Originally uploaded image**
+ - **Originally uploaded image**
 
 ```
 <restaurant_image_cdn> + <restaurant_image_path>
 ```
 e.g. [https://res.cloudinary.com/rdl/image/upload/restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg](https://res.cloudinary.com/rdl/image/upload/restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg)
- 2. **400 x 300px image** (centre cropped/filled)
+ - **400 x 300px image** (centre cropped/filled)
 
 ```
 <restaurant_image_cdn> + 'c_fill,w_400,h_300' + <restaurant_image_path>
 ```
 e.g. [https://res.cloudinary.com/rdl/image/upload/c_fill,w_400,h_300/restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg](https://res.cloudinary.com/rdl/image/upload/c_fill,w_400,h_300/restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg)
 
- 3. **Square 120px thumbnail image**  (centre cropped/filled)
+ - **Square 120px thumbnail image**  (centre cropped/filled)
 
 ```v1649075679/restaurants/<restaurant_number>/<restaurant_image>
 <restaurant_image_cdn> + 'c_fill,w_120,h_120' + <restaurant_image_path>
