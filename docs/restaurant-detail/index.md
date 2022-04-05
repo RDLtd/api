@@ -1,4 +1,4 @@
-# Restaurant Data
+# Restaurant Detail
 
 Access the full data set for restaurant
 
