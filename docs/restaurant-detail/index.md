@@ -109,7 +109,7 @@ Where *restaurant_detail* is a JSON structure that contains all currently availa
 
 ```
 {
-    error : 'Invalid Access Code',
+    error : 'Failed to verify user',
     status : 'FORBIDDEN',
     accessed : (datetime),
     api_version : {
@@ -119,6 +119,10 @@ Where *restaurant_detail* is a JSON structure that contains all currently availa
     }
 }
 ```
+Error texts can also be `'No restaurants authorised for this api user'`, `'Restaurant (number) is not authorised for this api user'`,
+`'Unable to determine if restaurant is authorised'`, `'Failed to read api users database'`. In all cases if these cannot be resolved, please contact our technical support team.
+
+
 
 **404 DATABASE ERROR**
 
