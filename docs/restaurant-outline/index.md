@@ -78,7 +78,7 @@ Where *restaurant_outline* is a JSON structure that contains all currently avail
 - **restaurant_image_cdn:** *string*
 - **restaurant_image_path:** *string*
 - **restaurant_opening_hours:** *object*
-- - restaurant_opening_notes: *string*
+- restaurant_opening_notes: *string*
 - **restaurant_attributes:** *object*
 - **restaurant_description** *string*
 - **restaurant_last_updated** *string*

@@ -77,9 +77,9 @@ Where *restaurant_detail* is a JSON structure that contains all currently availa
 - restaurant_cuisine_2 *string*
 - **restaurant_image_cdn:** *string*
 - **restaurant_image_path:** *string*
-- **restaurant_opening_hours** *string*
+- **restaurant_opening_hours** *object*
 - restaurant_opening_notes *string*
-- **restaurant_attributes:** *string*
+- **restaurant_attributes:** *object*
 - **restaurant_description** *string*
 - **restaurant_strap_line** *string*
 - **restaurant_one_sentence** *string*
@@ -89,9 +89,9 @@ Where *restaurant_detail* is a JSON structure that contains all currently availa
 - restaurant_private_dining *string*
 - restaurant_public_transport *string*
 - restaurant_parking *string*
-- restaurant_images *string*
-- restaurant_download_menus *string*
-- restaurant_sections *string*
+- restaurant_images *object*
+- restaurant_download_menus *object*
+- restaurant_sections *object*
 - **restaurant_last_updated** *string*
 
 
@@ -266,11 +266,26 @@ returns *restaurant_outline*:
   restaurant_public_transport: "Provide details of any public transport facilities that are close by, stations, bus routes etc.",
   restaurant_parking: "If there is car parking options nearby, then you can add them here.",
   restaurant_images: {
-    0: {image_cdn: 'https://res.cloudinary.com/rdl/image/upload/', image_path: 'restaurants/EN03392596/i1tw0w59iplkvn1xw1tm.jpg'}
-    1: {image_cdn: 'https://res.cloudinary.com/rdl/image/upload/', image_path: 'restaurants/EN03392596/gohsy0y0px96f2jofs2r.jpg'}
-    2: {image_cdn: 'https://res.cloudinary.com/rdl/image/upload/', image_path: 'restaurants/EN03392596/ql4kyfak10hqfyqngopq.jpg'}
-    3: {image_cdn: 'https://res.cloudinary.com/rdl/image/upload/', image_path: 'restaurants/EN03392596/zkowtue4awvfortsljp6.jpg'}
-    4: {image_cdn: 'https://res.cloudinary.com/rdl/image/upload/', image_path: 'restaurants/EN03392596/brqv6jikjiucvlqdos1h.jpg'}
+    0: {
+      image_cdn: 'https://res.cloudinary.com/rdl/image/upload/', 
+      image_path: 'restaurants/EN03392596/i1tw0w59iplkvn1xw1tm.jpg'
+    }
+    1: {
+      image_cdn: 'https://res.cloudinary.com/rdl/image/upload/', 
+      image_path: 'restaurants/EN03392596/gohsy0y0px96f2jofs2r.jpg'
+    }
+    2: {
+      image_cdn: 'https://res.cloudinary.com/rdl/image/upload/', 
+      image_path: 'restaurants/EN03392596/ql4kyfak10hqfyqngopq.jpg'
+    }
+    3: {
+      image_cdn: 'https://res.cloudinary.com/rdl/image/upload/', 
+      image_path: 'restaurants/EN03392596/zkowtue4awvfortsljp6.jpg'
+    }
+    4: {
+      image_cdn: 'https://res.cloudinary.com/rdl/image/upload/', 
+      image_path: 'restaurants/EN03392596/brqv6jikjiucvlqdos1h.jpg'
+    }
   }
   restaurant_download_menus: {
     0: "https://res.cloudinary.com/rdl/image/upload/v1649079789/restaurants/EN03392596/qfdekhcp1pplslf2etby.pdf"
@@ -278,12 +293,54 @@ returns *restaurant_outline*:
   restaurant_sections: {
     0:
       dishes: Array(6)
-        0: {name: 'PATÉ DI FEGATINI', description: 'Home-made Chicken Liver Paté served with Rustic Sicilian Bread and Relish.', price: '6.25', vegetarian: 0, gluten_free: 0, …}
-        1: {name: 'INSALATA CAPRESE GF', description: 'Sliced Beef Tomato, Mozzarella and Rocket with a d…of Virgin Olive Oil and Oregano / or with Avocado', price: '6.00', vegetarian: 1, gluten_free: 0, …}
-        2: {name: 'GRIGLIATA DI ORTAGGI E VERDURE', description: 'Grilled mixed Vegetables marinated in Extra Virgin Olive Oil and Vinegar', price: '6.00', vegetarian: 1, gluten_free: 1, …}
-        3: {name: 'SPAGHETTI ALLE VONGOLE', description: 'Fresh Clams, Garlic, little Chilli, Extra Virgin Olive Oil (with or without Tomato Sauce)', price: '12.50', vegetarian: 0, gluten_free: 0, …}
-        4: {name: "AGNOLOTTI D'AGNELLO", description: 'Homemade Pasta Parcels filled with young Welsh Lam…Velvety Red Wine, fresh Rosemary and Garlic Sauce', price: '13.00', vegetarian: 0, gluten_free: 0, …}
-        5: {name: 'LINGUINE MONTALBANO', description: 'Pasta with half dozen of King Prawns, Garlic, Chilli and little bit of Tomato Sauce', price: '11.75', vegetarian: 0, gluten_free: 0, …}
+        0: {
+          name: 'PATÉ DI FEGATINI', 
+          description: 'Home-made Chicken Liver Paté served with Rustic Sicilian Bread and Relish.', 
+          price: '6.25', 
+          vegetarian: 0, 
+          gluten_free: 0,
+          vegan: 0
+        }
+        1: {
+          name: 'INSALATA CAPRESE GF', 
+          description: 'Sliced Beef Tomato, Mozzarella and Rocket with a d…of Virgin Olive Oil and Oregano / or with Avocado', 
+          price: '6.00', 
+          vegetarian: 1, 
+          gluten_free: 0,
+          vegan: 0
+        }
+        2: {
+          name: 'GRIGLIATA DI ORTAGGI E VERDURE', 
+          description: 'Grilled mixed Vegetables marinated in Extra Virgin Olive Oil and Vinegar', 
+          price: '6.00', 
+          vegetarian: 1, 
+          gluten_free: 1, 
+          vegan: 0
+        }
+        3: {
+          name: 'SPAGHETTI ALLE VONGOLE', 
+          description: 'Fresh Clams, Garlic, little Chilli, Extra Virgin Olive Oil (with or without Tomato Sauce)', 
+          price: '12.50', 
+          vegetarian: 0, 
+          gluten_free: 0, 
+          vegan: 0
+        }
+        4: {
+          name: "AGNOLOTTI D'AGNELLO", 
+          description: 'Homemade Pasta Parcels filled with young Welsh Lam…Velvety Red Wine, fresh Rosemary and Garlic Sauce', 
+          price: '13.00', 
+          vegetarian: 0, 
+          gluten_free: 0, 
+          vegan: 0
+        }
+        5: {
+          name: 'LINGUINE MONTALBANO', 
+          description: 'Pasta with half dozen of King Prawns, Garlic, Chilli and little bit of Tomato Sauce', 
+          price: '11.75', 
+          vegetarian: 0, 
+          gluten_free: 0, 
+          vegan: 0
+        }
       name: "SAMPLE DISHES"
   }
   
