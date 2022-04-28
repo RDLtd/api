@@ -13,7 +13,9 @@ to enquire about registration.
 
 ## Endpoints
 
- - ### [Restaurant Detail](https://rdltd.github.io/api/restaurant-detail/)
+- ### [Restaurant Core](https://rdltd.github.io/api/restaurant-core/)
+- ### [Restaurant Outline](https://rdltd.github.io/api/restaurant-outline/)
+- ### [Restaurant Detail](https://rdltd.github.io/api/restaurant-detail/)
 
 
 
