@@ -1,10 +1,10 @@
-# Restaurant Detail
+# Restaurant Outline
 
-Access the core data set for restaurant
+Access the outline data set for restaurant
 
 * **URL**
 
-  `https://api.restaurantcollective.io/public/restaurant_detail`
+  `https://api.restaurantcollective.io/api/restaurant_outline`
 
 * **Method**
 
@@ -42,17 +42,17 @@ Access the core data set for restaurant
 
 ```
 {    
-    restaurant_detail : restaurant_detail,
+    restaurant_outline : restaurant_outline,
     status: 'OK',
     accessed: now,
     info : {
         "version": "V1.1beta",
-        "release": "08/02/22",
-        "tag": "RDL-publicAPI"
+        "release": "28/04/22",
+        "tag": "RDL-API"
     }
 }
 ```
-Where *restaurant_detail* is a JSON structure that contains all currently available *core data* for a restaurant (values in bold should always be returned):
+Where *restaurant_outline* is a JSON structure that contains all currently available *core data* plus a subset of additional data for a restaurant (values in bold should always be returned):
 
 - **restaurant_number** *string*
 - restaurant_group_name *string*
@@ -77,9 +77,10 @@ Where *restaurant_detail* is a JSON structure that contains all currently availa
 - restaurant_cuisine_2 *string*
 - **restaurant_image_cdn:** *string*
 - **restaurant_image_path:** *string*
-- restaurant_opening_notes: *string*
 - **restaurant_opening_hours:** *object*
+- - restaurant_opening_notes: *string*
 - **restaurant_attributes:** *object*
+- **restaurant_description** *string*
 - **restaurant_last_updated** *string*
 
 
@@ -97,8 +98,8 @@ Where *restaurant_detail* is a JSON structure that contains all currently availa
     accessed : (datetime),
     api_version : {
         version : 'V1.0beta',
-        release : '07/11/20',
-        tag : 'RDL_publicAPI'
+        release : '28/04/22',
+        tag : 'RDL_API'
     }
 }
 ```
@@ -114,8 +115,8 @@ Where *restaurant_detail* is a JSON structure that contains all currently availa
     accessed : (datetime),
     api_version : {
         "version": "V1.1beta",
-        "release": "08/02/22",
-        "tag": "RDL-publicAPI"
+        "release": "28/04/22",
+        "tag": "RDL-API"
     }
 }
 ```
@@ -135,8 +136,8 @@ Error texts can also be `'No restaurants authorised for this api user'`, `'Resta
     accessed : (datetime),
     api_version : {
         "version": "V1.1beta",
-        "release": "08/02/22",
-        "tag": "RDL-publicAPI"
+        "release": "28/04/22",
+        "tag": "RDL-API"
     }
 }
 ```
@@ -159,7 +160,7 @@ As would appear in a script
 
     let xhr_bkg_request = new XMLHttpRequest();
     xhr_bkg_request.open('POST',
-    	'https://api.restaurantcollective.io/public/restaurant_detail', true);
+    	'https://api.restaurantcollective.io/public/restaurant_outline', true);
     	xhr_bkg_request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     	xhr_bkg_request.send(JSON.stringify(api_params));
 ```
@@ -169,8 +170,8 @@ As would appear in a script
 As would appear in an Angular service
 
 ```
- getRestaurants(user_code: string, api_key: string, restaurant_number: string) {
-    return this.http.post('https://api.restaurantcollective.io/public/restaurant_detail',
+ getRestaurantOutline(user_code: string, api_key: string, restaurant_number: string) {
+    return this.http.post('https://api.restaurantcollective.io/public/restaurant_outline',
       { 
         channel_access_code : '(your_user_code)',
         channel_access_api_key : '(your_api_key)', 
@@ -193,7 +194,7 @@ These settings are required in the POST request body. If testing from Postman or
     restaurant_number : 'EN044999999'
 }
 ```
-returns *restaurant_detail*:
+returns *restaurant_outline*:
 
 ```
 {
@@ -218,6 +219,9 @@ returns *restaurant_detail*:
   "restaurant_facebook": "https://faceboook.com/restaurantcollective",
   "restaurant_twitter": "https://twitter.com/RCollectiveUK",
   "restaurant_instagram": "https://instagram.com/restaurantcollectiveuk",
+  	
+  "restaurant_cuisine_1": "British",
+  "restaurant_cuisine_2": "Cafe",
   
   "restaurant_opening_hours": {
   	0: "Sun: Closed all day"
@@ -228,9 +232,8 @@ returns *restaurant_detail*:
 		5: "Fri: 08:00 - 18:00"
 		6: "Sat: Closed all day"
 	},
-	
-  "restaurant_cuisine_1": "British",
-  "restaurant_cuisine_2": "Cafe",
+  "restaurant_opening_notes": "All Year"
+
   "restaurant_image_cdn": "https://res.cloudinary.com/rdl/image/upload/"
   "restaurant_image_path": "restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg",
   
