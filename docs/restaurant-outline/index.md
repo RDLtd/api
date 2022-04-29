@@ -69,7 +69,7 @@ Where *restaurant_outline* is a JSON structure that contains all currently avail
 - email *string*
 - website *string*
 - **spw_url** *string*
-- **spw_type** *string* [ member | curated | stock ]
+- **spw_type** *string* [ member / curated / stock ]
 - facebook *string*
 - twitter *string*
 - instagram *string*
@@ -199,32 +199,32 @@ returns *restaurant_outline*:
 
 ```
 {
-  "number": "EN03392596",
-  "group_name": "RDL",
-  "name": "RC Demo Restaurant",
+  number: "EN03392596",
+  group_name: "RDL",
+  name: "RC Demo Restaurant",
   
-  "address_1": "Kineton House, 31 Horsefair",
-  "address_2": "Banbury",
-  "address_3": "Oxfordshire",
-  "post_code": "OX16 0AE",
-  "country_code": "GB",
-  "lat": 52.0607,
-  "lng": 1.33956,
+  address_1: "Kineton House, 31 Horsefair",
+  address_2: "Banbury",
+  address_3: "Oxfordshire",
+  post_code: "OX16 0AE",
+  country_code: "GB",
+  lat: 52.0607,
+  lng: 1.33956,
 
-  "telephone": "+44 7734038999",
-  "email": "info@restaurantcollective.org.uk",
-  "website": "https://restaurantcollective.org.uk",
-  "spw_url": "https://spw.restaurantcollective.org.uk/92596-rc-demo-restaurant/",
-  "spw_type": "member",
+  telephone: "+44 7734038999",
+  email: "info@restaurantcollective.org.uk",
+  website: "https://restaurantcollective.org.uk",
+  spw_url: "https://spw.restaurantcollective.org.uk/92596-rc-demo-restaurant/",
+  spw_type: "member",
   
-  "facebook": "https://faceboook.com/restaurantcollective",
-  "twitter": "https://twitter.com/RCollectiveUK",
-  "instagram": "https://instagram.com/restaurantcollectiveuk",
-  	
-  "cuisine_1": "British",
-  "cuisine_2": "Cafe",
+  facebook: "https://faceboook.com/restaurantcollective",
+  twitter: "https://twitter.com/RCollectiveUK",
+  instagram: "https://instagram.com/restaurantcollectiveuk",
   
-  "opening_hours": {
+  cuisine_1: "British",
+  cuisine_2: "Cafe",
+  
+  opening_hours: {
   	0: "Sun: Closed all day"
 	1: "Mon: 08:00 - 18:00"
 	2: "Tue: 08:00 - 18:00"
@@ -233,12 +233,12 @@ returns *restaurant_outline*:
 	5: "Fri: 08:00 - 18:00"
 	6: "Sat: Closed all day"
   },
-  "opening_notes": "All Year"
+  opening_notes: "All Year"
 
-  "image_cdn": "https://res.cloudinary.com/rdl/image/upload/"
-  "default_image_path": "restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg",
+  image_cdn: "https://res.cloudinary.com/rdl/image/upload/"
+  default_image_path: "restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg",
   
-  "attributes": {
+  attributes: {
   	0: "Children Welcome"
   	1: "Wheelchair Access"
   	2: "Vegetarian Options"
@@ -246,9 +246,9 @@ returns *restaurant_outline*:
   	4: "Internet Booking"
   },
   
-  "description": "This is for a full description of the restaurant and will primarily be used for display on the restaurants landing page, or Single Page Website (SPW). This description can be used to describe the restaurant's style, cuisine, ethos, ambience, decor, location etc. in much greater detail, and to highlight its key features. It can be up to 5000 characters in length.",
+  description: "This is for a full description of the restaurant and will primarily be used for display on the restaurants landing page, or Single Page Website (SPW). This description can be used to describe the restaurant's style, cuisine, ethos, ambience, decor, location etc. in much greater detail, and to highlight its key features. It can be up to 5000 characters in length.",
   
-  "last_updated": "2019-06-13T09:45:14.000Z",
+  last_updated: "2019-06-13T09:45:14.000Z",
 }
 ```
 

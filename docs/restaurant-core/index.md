@@ -70,7 +70,7 @@ Where *restaurant_core* is a JSON structure that contains all currently availabl
 - email *string*
 - website *string*
 - **spw_url** *string*
-- **spw_type** *string* [ member | curated | stock ]
+- **spw_type** *string* [ member / curated / stock ]
 - facebook *string*
 - twitter *string*
 - instagram *string*
@@ -193,31 +193,31 @@ returns *restaurant_core*:
 
 ```
 {
-  "number": "EN03392596",
-  "group_name": "RDL",
-  "name": "RC Demo Restaurant",
+  number: "EN03392596",
+  group_name: "RDL",
+  name: "RC Demo Restaurant",
   
-  "address_1": "Kineton House, 31 Horsefair",
-  "address_2": "Banbury",
-  "address_3": "Oxfordshire",
-  "post_code": "OX16 0AE",
-  "country_code": "GB",
-  "lat": 52.0607,
-  "lng": 1.33956,
+  address_1: "Kineton House, 31 Horsefair",
+  address_2: "Banbury",
+  address_3: "Oxfordshire",
+  post_code: "OX16 0AE",
+  country_code: "GB",
+  lat: 52.0607,
+  lng: 1.33956,
 
-  "telephone": "+44 7734038999",
-  "email": "info@restaurantcollective.org.uk",
-  "website": "https://restaurantcollective.org.uk",
-  "spw_url": "https://spw.restaurantcollective.org.uk/92596-rc-demo-restaurant/",
-  "spw_type": "member",
+  telephone: "+44 7734038999",
+  email: "info@restaurantcollective.org.uk",
+  website: "https://restaurantcollective.org.uk",
+  spw_url: "https://spw.restaurantcollective.org.uk/92596-rc-demo-restaurant/",
+  spw_type: "member",
   
-  "facebook": "https://faceboook.com/restaurantcollective",
-  "twitter": "https://twitter.com/RCollectiveUK",
-  "instagram": "https://instagram.com/restaurantcollectiveuk",
+  facebook: "https://faceboook.com/restaurantcollective",
+  twitter: "https://twitter.com/RCollectiveUK",
+  instagram: "https://instagram.com/restaurantcollectiveuk",
   
-  "cuisine_1": "British",
-  "cuisine_2": "Cafe",
+  cuisine_1: "British",
+  cuisine_2: "Cafe",
   
-  "last_updated": "2019-06-13T09:45:14.000Z",
+  last_updated: "2019-06-13T09:45:14.000Z",
 }
 ```
