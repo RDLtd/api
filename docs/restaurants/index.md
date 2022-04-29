@@ -21,7 +21,7 @@ Returns a list of restaurants to which this channel has subscribed
     channel_access_code : '(your_user_code)',
     channel_access_api_key : '(your_api_key)',
     sort_field : '(name | number)',
-    limit : '(n, max 500)',
+    limit : '(n, max 100)',
     offset : '(n, default 0)'
 }
 ```
@@ -59,23 +59,23 @@ Returns a list of restaurants to which this channel has subscribed
     }
 }
 ```
-Where *restaurants* is a JSON structure that contains an array of summary restaurant records, each of which has the following fields:
+Where *restaurants* is a JSON structure that contains an array of summary restaurant records, each of which has the following fields (those in bold will always be returned):
 
-- **restaurant_name** *string*
-- **restaurant_number** *string*
-- **restaurant_address_1** *string*
-- **restaurant_address_2** *string*
-- **restaurant_address_3** *string*
-- **restaurant_post_code** *string*
-- **restaurant_region** *string*
-- **restaurant_lat** *number*
-- **restaurant_lng** *number*
-- **restaurant_telephone** *string*
-- restaurant_email *string*
-- restaurant_website *string*
-- **restaurant_spw_url** *string*
-- **restaurant_cuisine_1** *string*
-- **restaurant_last_updated** *string*
+- **name** *string*
+- **number** *string*
+- **address_1** *string*
+- **address_2** *string*
+- **address_3** *string*
+- **post_code** *string*
+- **region** *string*
+- **lat** *number*
+- **lng** *number*
+- **telephone** *string*
+- email *string*
+- website *string*
+- spw_url *string*
+- **cuisine_1** *string*
+- **last_updated** *string*
 
 
 
@@ -183,6 +183,7 @@ As would appear in an Angular service
 These settings are required in the POST request body. If testing from Postman or a similar API test app, set the body format to `x-www-form-urlencoded`.
 
 * **To return list of restaurants for this channel**
+
 ```
 { 
     channel_access_code : 'TT9999',
@@ -192,43 +193,48 @@ These settings are required in the POST request body. If testing from Postman or
     offset : 0
 }
 ```
-returns *restaurants*:
+returns (count is the number of restaurants returned, offset is the index of the first record, total is the total number of restaurants available for this channel. This example is equivalent to 'returning records 1 to 2 of 2'):
 
 ```
 {
-  0: {
-    restaurant_address_1: "Hinton in the Hedges"
-    restaurant_address_2: "Brackley"
-    restaurant_address_3: "Northamptonshire"
-    restaurant_cuisine_1: "British"
-    restaurant_email: "jb@restaurantdevelopments.ltd"
-    restaurant_last_updated: "2022-04-25T13:15:31.000Z"
-    restaurant_lat: 52.0273
-    restaurant_lng: -1.18677
-    restaurant_name: "Example Restaurant"
-    restaurant_number: "EN03085719"
-    restaurant_post_code: "NN13 5NF"
-    restaurant_region: "East Midlands"
-    restaurant_spw_url: "https://spw.restaurantcollective.org.uk/85719-example-restaurant"
-    restaurant_telephone: "077340389988"
-    restaurant_website: "https://www.example-restaurant.com"
-  }
-  1: {
-    restaurant_address_1: "31 Horsefair"
-    restaurant_address_2: "Banbury"
-    restaurant_address_3: "Oxfordshire"
-    restaurant_cuisine_1: "British"
-    restaurant_email: "info@restaurantcollective.org.uk"
-    restaurant_last_updated: "2022-04-25T12:44:53.000Z"
-    restaurant_lat: 52.0607
-    restaurant_lng: -1.33956
-    restaurant_name: "RC Demo Restaurant"
-    restaurant_number: "EN03392596"
-    restaurant_post_code: "OX16 0AE"
-    restaurant_region: "South East England"
-    restaurant_spw_url: "https://spw.restaurantcollective.org.uk/92596-rc-demo-restaurant"
-    restaurant_telephone: "+44 7734038999"
-    restaurant_website: "https://restaurantcollective.org.uk"
+  count: 2,
+  offset: 0,
+  total: 2,
+  restaurants: {
+    0: {
+      address_1: "Hinton in the Hedges"
+      address_2: "Brackley"
+      address_3: "Northamptonshire"
+      cuisine_1: "British"
+      email: "jb@restaurantdevelopments.ltd"
+      last_updated: "2022-04-25T13:15:31.000Z"
+      lat: 52.0273
+      lng: -1.18677
+      name: "Example Restaurant"
+      number: "EN03085719"
+      post_code: "NN13 5NF"
+      region: "East Midlands"
+      spw_url: "https://spw.restaurantcollective.org.uk/85719-example-restaurant"
+      telephone: "077340389988"
+      website: "https://www.example-restaurant.com"
+    }
+    1: {
+      address_1: "31 Horsefair"
+      address_2: "Banbury"
+      address_3: "Oxfordshire"
+      cuisine_1: "British"
+      email: "info@restaurantcollective.org.uk"
+      last_updated: "2022-04-25T12:44:53.000Z"
+      lat: 52.0607
+      lng: -1.33956
+      name: "RC Demo Restaurant"
+      number: "EN03392596"
+      post_code: "OX16 0AE"
+      region: "South East England"
+      spw_url: "https://spw.restaurantcollective.org.uk/92596-rc-demo-restaurant"
+      telephone: "+44 7734038999"
+      website: "https://restaurantcollective.org.uk"
+    }
   }
 }
 ```

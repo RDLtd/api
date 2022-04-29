@@ -28,7 +28,7 @@ Returns the outline data set for restaurant (core plus a subset suitable for a l
 
     * your_user_code (string) - as specified by RDL
     * your_api_key (string) - as specified by RDL
-    * your_restaurant_number (string) - as specified by RDL
+    * your_number (string) - as specified by RDL
     
     
 
@@ -54,35 +54,35 @@ Returns the outline data set for restaurant (core plus a subset suitable for a l
 ```
 Where *restaurant_outline* is a JSON structure that contains all currently available *core data* plus a subset of additional data for a restaurant (values in bold should always be returned):
 
-- **restaurant_number** *string*
-- restaurant_group_name *string*
-- **restaurant_name** *string*
-- **restaurant_address_1** *string*
-- **restaurant_address_2** *string*
-- **restaurant_address_3** *string*
-- **restaurant_post_code** *string*
-- **restaurant_region** *string*
-- **restaurant_country_code** *string*
-- **restaurant_lat** *number*
-- **restaurant_lng** *number*
-- **restaurant_telephone** *string*
-- restaurant_email *string*
-- restaurant_website *string*
-- **restaurant_spw_url** *string*
-- **restaurant_spw_type** *string* [ member / curated / stock ]
-- restaurant_facebook *string*
-- restaurant_twitter *string*
-- restaurant_instagram *string*
-- **restaurant_opening_hours** 
-- **restaurant_cuisine_1** *string*
-- restaurant_cuisine_2 *string*
-- **restaurant_image_cdn:** *string*
-- **restaurant_image_path:** *string*
-- **restaurant_opening_hours:** *object*
-- restaurant_opening_notes: *string*
-- **restaurant_attributes:** *object*
-- **restaurant_description** *string*
-- **restaurant_last_updated** *string*
+- **number** *string*
+- group_name *string*
+- **name** *string*
+- **address_1** *string*
+- **address_2** *string*
+- **address_3** *string*
+- **post_code** *string*
+- **region** *string*
+- **country_code** *string*
+- **lat** *number*
+- **lng** *number*
+- **telephone** *string*
+- email *string*
+- website *string*
+- **spw_url** *string*
+- **spw_type** *string* [ member | curated | stock ]
+- facebook *string*
+- twitter *string*
+- instagram *string*
+- **opening_hours** 
+- **cuisine_1** *string*
+- cuisine_2 *string*
+- **image_cdn:** *string*
+- **default_image_path:** *string*
+- **opening_hours:** *object*
+- opening_notes: *string*
+- **attributes:** *object*
+- **description** *string*
+- **last_updated** *string*
 
 
 
@@ -161,7 +161,7 @@ As would appear in a script
 
     let xhr_bkg_request = new XMLHttpRequest();
     xhr_bkg_request.open('POST',
-      'https://api.restaurantcollective.io/api/restaurant_outline', true);
+      'https://api.restaurantcollective.io/api/outline', true);
       xhr_bkg_request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
       xhr_bkg_request.send(JSON.stringify(api_params));
 ```
@@ -171,7 +171,7 @@ As would appear in a script
 As would appear in an Angular service
 
 ```
- getRestaurantOutline(user_code, api_key, restaurant_number) {
+ getRestaurantOutline(user_code, api_key, number) {
     return this.http.post('https://api.restaurantcollective.io/api/restaurant_outline',
       { 
         channel_access_code : '(your_user_code)',
@@ -192,53 +192,53 @@ These settings are required in the POST request body. If testing from Postman or
 { 
     channel_access_code : 'TT9999',
     channel_access_api_key : 'TESTAPIKEYASISSUEDBYRDLBYCHANNEL'
-    restaurant_number : 'EN044999999'
+    number : 'EN044999999'
 }
 ```
 returns *restaurant_outline*:
 
 ```
 {
-  "restaurant_number": "EN03392596",
-  "restaurant_group_name": "RDL",
-  "restaurant_name": "RC Demo Restaurant",
+  "number": "EN03392596",
+  "group_name": "RDL",
+  "name": "RC Demo Restaurant",
   
-  "restaurant_address_1": "Kineton House, 31 Horsefair",
-  "restaurant_address_2": "Banbury",
-  "restaurant_address_3": "Oxfordshire",
-  "restaurant_post_code": "OX16 0AE",
-  "restaurant_country_code": "GB",
-  "restaurant_lat": 52.0607,
-  "restaurant_lng": 1.33956,
+  "address_1": "Kineton House, 31 Horsefair",
+  "address_2": "Banbury",
+  "address_3": "Oxfordshire",
+  "post_code": "OX16 0AE",
+  "country_code": "GB",
+  "lat": 52.0607,
+  "lng": 1.33956,
 
-  "restaurant_telephone": "+44 7734038999",
-  "restaurant_email": "info@restaurantcollective.org.uk",
-  "restaurant_website": "https://restaurantcollective.org.uk",
-  "restaurant_spw_url": "https://spw.restaurantcollective.org.uk/92596-rc-demo-restaurant/",
-  "restaurant_spw_type": "member",
+  "telephone": "+44 7734038999",
+  "email": "info@restaurantcollective.org.uk",
+  "website": "https://restaurantcollective.org.uk",
+  "spw_url": "https://spw.restaurantcollective.org.uk/92596-rc-demo-restaurant/",
+  "spw_type": "member",
   
-  "restaurant_facebook": "https://faceboook.com/restaurantcollective",
-  "restaurant_twitter": "https://twitter.com/RCollectiveUK",
-  "restaurant_instagram": "https://instagram.com/restaurantcollectiveuk",
+  "facebook": "https://faceboook.com/restaurantcollective",
+  "twitter": "https://twitter.com/RCollectiveUK",
+  "instagram": "https://instagram.com/restaurantcollectiveuk",
   	
-  "restaurant_cuisine_1": "British",
-  "restaurant_cuisine_2": "Cafe",
+  "cuisine_1": "British",
+  "cuisine_2": "Cafe",
   
-  "restaurant_opening_hours": {
+  "opening_hours": {
   	0: "Sun: Closed all day"
-		1: "Mon: 08:00 - 18:00"
-		2: "Tue: 08:00 - 18:00"
-		3: "Wed: 08:00 - 18:00"
-		4: "Thu: 08:00 - 18:00"
-		5: "Fri: 08:00 - 18:00"
-		6: "Sat: Closed all day"
-	},
-  "restaurant_opening_notes": "All Year"
+	1: "Mon: 08:00 - 18:00"
+	2: "Tue: 08:00 - 18:00"
+	3: "Wed: 08:00 - 18:00"
+	4: "Thu: 08:00 - 18:00"
+	5: "Fri: 08:00 - 18:00"
+	6: "Sat: Closed all day"
+  },
+  "opening_notes": "All Year"
 
-  "restaurant_image_cdn": "https://res.cloudinary.com/rdl/image/upload/"
-  "restaurant_image_path": "restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg",
+  "image_cdn": "https://res.cloudinary.com/rdl/image/upload/"
+  "default_image_path": "restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg",
   
-  "restaurant_attributes": {
+  "attributes": {
   	0: "Children Welcome"
   	1: "Wheelchair Access"
   	2: "Vegetarian Options"
@@ -246,9 +246,9 @@ returns *restaurant_outline*:
   	4: "Internet Booking"
   },
   
-  "restaurant_description": "This is for a full description of the restaurant and will primarily be used for display on the restaurants landing page, or Single Page Website (SPW). This description can be used to describe the restaurant's style, cuisine, ethos, ambience, decor, location etc. in much greater detail, and to highlight its key features. It can be up to 5000 characters in length.",
+  "description": "This is for a full description of the restaurant and will primarily be used for display on the restaurants landing page, or Single Page Website (SPW). This description can be used to describe the restaurant's style, cuisine, ethos, ambience, decor, location etc. in much greater detail, and to highlight its key features. It can be up to 5000 characters in length.",
   
-  "restaurant_last_updated": "2019-06-13T09:45:14.000Z",
+  "last_updated": "2019-06-13T09:45:14.000Z",
 }
 ```
 
@@ -259,20 +259,20 @@ Images are served by the Cloudinary CDN and can be requested at any size. An `ht
  - **Originally uploaded image**
 
 ```
-<restaurant_image_cdn> + <restaurant_image_path>
+<image_cdn> + <image_path>
 ```
 e.g. [https://res.cloudinary.com/rdl/image/upload/restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg](https://res.cloudinary.com/rdl/image/upload/restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg)
  - **400 x 300px image** (centre cropped/filled)
 
 ```
-<restaurant_image_cdn> + 'c_fill,w_400,h_300' + <restaurant_image_path>
+<image_cdn> + 'c_fill,w_400,h_300' + <image_path>
 ```
 e.g. [https://res.cloudinary.com/rdl/image/upload/c_fill,w_400,h_300/restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg](https://res.cloudinary.com/rdl/image/upload/c_fill,w_400,h_300/restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg)
 
  - **Square 120px thumbnail image**  (centre cropped/filled)
 
-```v1649075679/restaurants/<restaurant_number>/<restaurant_image>
-<restaurant_image_cdn> + 'c_fill,w_120,h_120' + <restaurant_image_path>
+```
+<image_cdn> + 'c_fill,w_120,h_120' + <image_path>
 ```
 e.g. [https://res.cloudinary.com/rdl/image/upload/c_fill,w_120,h_120/restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg](https://res.cloudinary.com/rdl/image/upload/c_fill,w_120,h_120/restaurants/EN03392596/dbh7yg82buiqmrfbamny.jpg)
 

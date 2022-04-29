@@ -55,28 +55,28 @@ Returns the core data set for a restaurant
 Where *restaurant_core* is a JSON structure that contains all currently available *core data* for a restaurant
 (values in bold should always be returned):
 
-- **restaurant_number** *string*
-- restaurant_group_name *string*
-- **restaurant_name** *string*
-- **restaurant_address_1** *string*
-- **restaurant_address_2** *string*
-- **restaurant_address_3** *string*
-- **restaurant_post_code** *string*
-- **restaurant_region** *string*
-- **restaurant_country_code** *string*
-- **restaurant_lat** *number*
-- **restaurant_lng** *number*
-- **restaurant_telephone** *string*
-- restaurant_email *string*
-- restaurant_website *string*
-- **restaurant_spw_url** *string*
-- **restaurant_spw_type** *string* [ member / curated / stock ]
-- restaurant_facebook *string*
-- restaurant_twitter *string*
-- restaurant_instagram *string*
-- **restaurant_cuisine_1** *string*
-- restaurant_cuisine_2 *string*
-- **restaurant_last_updated** *string*
+- **number** *string*
+- group_name *string*
+- **name** *string*
+- **address_1** *string*
+- **address_2** *string*
+- **address_3** *string*
+- **post_code** *string*
+- **region** *string*
+- **country_code** *string*
+- **lat** *number*
+- **lng** *number*
+- **telephone** *string*
+- email *string*
+- website *string*
+- **spw_url** *string*
+- **spw_type** *string* [ member | curated | stock ]
+- facebook *string*
+- twitter *string*
+- instagram *string*
+- **cuisine_1** *string*
+- cuisine_2 *string*
+- **last_updated** *string*
 
 
 
@@ -193,31 +193,31 @@ returns *restaurant_core*:
 
 ```
 {
-  "restaurant_number": "EN03392596",
-  "restaurant_group_name": "RDL",
-  "restaurant_name": "RC Demo Restaurant",
+  "number": "EN03392596",
+  "group_name": "RDL",
+  "name": "RC Demo Restaurant",
   
-  "restaurant_address_1": "Kineton House, 31 Horsefair",
-  "restaurant_address_2": "Banbury",
-  "restaurant_address_3": "Oxfordshire",
-  "restaurant_post_code": "OX16 0AE",
-  "restaurant_country_code": "GB",
-  "restaurant_lat": 52.0607,
-  "restaurant_lng": 1.33956,
+  "address_1": "Kineton House, 31 Horsefair",
+  "address_2": "Banbury",
+  "address_3": "Oxfordshire",
+  "post_code": "OX16 0AE",
+  "country_code": "GB",
+  "lat": 52.0607,
+  "lng": 1.33956,
 
-  "restaurant_telephone": "+44 7734038999",
-  "restaurant_email": "info@restaurantcollective.org.uk",
-  "restaurant_website": "https://restaurantcollective.org.uk",
-  "restaurant_spw_url": "https://spw.restaurantcollective.org.uk/92596-rc-demo-restaurant/",
-  "restaurant_spw_type": "member",
+  "telephone": "+44 7734038999",
+  "email": "info@restaurantcollective.org.uk",
+  "website": "https://restaurantcollective.org.uk",
+  "spw_url": "https://spw.restaurantcollective.org.uk/92596-rc-demo-restaurant/",
+  "spw_type": "member",
   
-  "restaurant_facebook": "https://faceboook.com/restaurantcollective",
-  "restaurant_twitter": "https://twitter.com/RCollectiveUK",
-  "restaurant_instagram": "https://instagram.com/restaurantcollectiveuk",
+  "facebook": "https://faceboook.com/restaurantcollective",
+  "twitter": "https://twitter.com/RCollectiveUK",
+  "instagram": "https://instagram.com/restaurantcollectiveuk",
   
-  "restaurant_cuisine_1": "British",
-  "restaurant_cuisine_2": "Cafe",
+  "cuisine_1": "British",
+  "cuisine_2": "Cafe",
   
-  "restaurant_last_updated": "2019-06-13T09:45:14.000Z",
+  "last_updated": "2019-06-13T09:45:14.000Z",
 }
 ```
