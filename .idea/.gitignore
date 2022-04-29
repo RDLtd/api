@@ -4,3 +4,6 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 /.idea
+/api.iml
+/modules.xml
+/vcs.xml
