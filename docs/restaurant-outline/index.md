@@ -1,6 +1,6 @@
 # Restaurant Outline
 
-Access the outline data set for restaurant
+Returns the outline data set for restaurant (core plus a subset suitable for a listing)
 
 * **URL**
 

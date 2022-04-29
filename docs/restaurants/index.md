@@ -1,6 +1,6 @@
 # Restaurants
 
-Get the list of restaurants to which this channel has subscribed
+Returns a list of restaurants to which this channel has subscribed
 
 * **URL**
 

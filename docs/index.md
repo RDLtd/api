@@ -13,10 +13,14 @@ to enquire about registration.
 
 ## Endpoints
 
+- ### [Restaurants](https://rdltd.github.io/api/restaurants/)
+    Returns a list of restaurants to which this channel has subscribed
 - ### [Restaurant Core](https://rdltd.github.io/api/restaurant-core/)
+    Returns the core data set for a restaurant
 - ### [Restaurant Outline](https://rdltd.github.io/api/restaurant-outline/)
+    Returns the outline data set for restaurant (core plus a subset suitable for a listing)
 - ### [Restaurant Detail](https://rdltd.github.io/api/restaurant-detail/)
-
+    Returns the detailed data set for restaurant, including images, menus, and other associated data 
 
 
 

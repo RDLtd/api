@@ -1,6 +1,6 @@
 # Restaurant Core
 
-Access the core data set for restaurant
+Returns the core data set for a restaurant
 
 * **URL**
 

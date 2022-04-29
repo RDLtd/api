@@ -1,6 +1,6 @@
 # Restaurant Detail
 
-Access the detailed data set for restaurant
+Returns the detailed data set for restaurant, including images, menus, and other associated data 
 
 * **URL**
 
