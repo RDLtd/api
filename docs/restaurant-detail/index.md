@@ -171,9 +171,9 @@ As would appear in a script
 
     let xhr_bkg_request = new XMLHttpRequest();
     xhr_bkg_request.open('POST',
-    	'https://api.restaurantcollective.io/api/restaurant_detail', true);
-    	xhr_bkg_request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-    	xhr_bkg_request.send(JSON.stringify(api_params));
+      'https://api.restaurantcollective.io/api/restaurant_detail', true);
+      xhr_bkg_request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+      xhr_bkg_request.send(JSON.stringify(api_params));
 ```
 
 * **Angular / TypeScript**
@@ -181,13 +181,13 @@ As would appear in a script
 As would appear in an Angular service
 
 ```
- getRestaurantOutline(user_code: string, api_key: string, restaurant_number: string) {
+ getRestaurantDetail(user_code, api_key, restaurant_number) {
     return this.http.post('https://api.restaurantcollective.io/api/restaurant_detail',
       { 
         channel_access_code : '(your_user_code)',
         channel_access_api_key : '(your_api_key)', 
-        restaurant_number: '(restaurant_number)'
-  	  }
+        restaurant_number
+    }
  }
 ```
 ---

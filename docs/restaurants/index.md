@@ -30,7 +30,6 @@ Returns a list of restaurants to which this channel has subscribed
 
     * your_user_code (string) - as specified by RDL
     * your_api_key (string) - as specified by RDL
-    * your_restaurant_number (string) - as specified by RDL
 
 
 * **Optional Parameters**
@@ -115,7 +114,7 @@ Where *restaurants* is a JSON structure that contains an array of summary restau
     }
 }
 ```
-Error texts can also be `'No restaurants authorised for this api user'`, `'Restaurant (number) is not authorised for this api user'`,
+Error texts can also be `'No restaurants authorised for this api user'`, 
 `'Unable to determine if restaurant is authorised'`, `'Failed to read api users database'`. In all cases if these cannot be resolved, please contact our technical support team.
 
 
@@ -157,9 +156,9 @@ As would appear in a script
 
     let xhr_bkg_request = new XMLHttpRequest();
     xhr_bkg_request.open('POST',
-    	'https://api.restaurantcollective.io/api/restaurants', true);
-    	xhr_bkg_request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-    	xhr_bkg_request.send(JSON.stringify(api_params));
+      'https://api.restaurantcollective.io/api/restaurants', true);
+      xhr_bkg_request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+      xhr_bkg_request.send(JSON.stringify(api_params));
 ```
 
 * **Angular / TypeScript**
@@ -167,15 +166,13 @@ As would appear in a script
 As would appear in an Angular service
 
 ```
- getRestaurantCore(user_code: string, api_key: string, restaurant_number: string) {
+ getRestaurants(user_code, api_key, sort_field, limit, offset) {
     return this.http.post('https://api.restaurantcollective.io/aoi/restaurants',
       { 
         channel_access_code : '(your_user_code)',
         channel_access_api_key : '(your_api_key)', 
-        sort_field : 'number',
-        limit : 10,
-        offset : 0
-  	  }
+        sort_field, limit, offset
+      }
  }
 ```
 ---
