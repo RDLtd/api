@@ -61,6 +61,7 @@ Where *restaurant_outline* is a JSON structure that contains all currently avail
 - **restaurant_address_2** *string*
 - **restaurant_address_3** *string*
 - **restaurant_post_code** *string*
+- **restaurant_region** *string*
 - **restaurant_country_code** *string*
 - **restaurant_lat** *number*
 - **restaurant_lng** *number*
@@ -160,7 +161,7 @@ As would appear in a script
 
     let xhr_bkg_request = new XMLHttpRequest();
     xhr_bkg_request.open('POST',
-    	'https://api.restaurantcollective.io/public/restaurant_outline', true);
+    	'https://api.restaurantcollective.io/api/restaurant_outline', true);
     	xhr_bkg_request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     	xhr_bkg_request.send(JSON.stringify(api_params));
 ```
@@ -171,11 +172,11 @@ As would appear in an Angular service
 
 ```
  getRestaurantOutline(user_code: string, api_key: string, restaurant_number: string) {
-    return this.http.post('https://api.restaurantcollective.io/public/restaurant_outline',
+    return this.http.post('https://api.restaurantcollective.io/api/restaurant_outline',
       { 
         channel_access_code : '(your_user_code)',
         channel_access_api_key : '(your_api_key)', 
-        restaurant_number: (restaurant_number) });
+        restaurant_number: '(restaurant_number)'
   	  }
  }
 ```
