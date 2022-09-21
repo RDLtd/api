@@ -18,8 +18,8 @@ Returns a list of restaurants to which this channel has subscribed
 
 ```
 { 
-    channel_access_code : '(your_user_code)',
-    channel_access_api_key : '(your_api_key)',
+    user_code : '(your_user_code)',
+    api_key : '(your_api_key)',
     sort_field : '(name | number)',
     limit : '(n, max 100)',
     offset : '(n, default 0)'
@@ -148,7 +148,7 @@ As would appear in a script
 ```
     let api_params = {
       user_code : '(your_user_code)',
-      channel_access_api_key : '(your_api_key)', 
+      api_key : '(your_api_key)', 
       sort_field : 'number',
       limit : 10,
       offset : 0
@@ -169,8 +169,8 @@ As would appear in an Angular service
  getRestaurants(user_code, api_key, sort_field, limit, offset) {
     return this.http.post('https://api.restaurantcollective.io/aoi/restaurants',
       { 
-        channel_access_code : '(your_user_code)',
-        channel_access_api_key : '(your_api_key)', 
+        user_code : '(your_user_code)',
+        api_key : '(your_api_key)', 
         sort_field, limit, offset
       }
  }
@@ -186,8 +186,8 @@ These settings are required in the POST request body. If testing from Postman or
 
 ```
 { 
-    channel_access_code : 'TT9999',
-    channel_access_api_key : 'TESTAPIKEYASISSUEDBYRDLBYCHANNEL'
+    user_code : 'TT9999',
+    api_key : 'TESTAPIKEYASISSUEDBYRDLBYCHANNEL'
     sort_field : 'number',
     limit : 10,
     offset : 0

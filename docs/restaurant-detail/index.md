@@ -18,8 +18,8 @@ Returns the detailed data set for restaurant, including images, menus, and other
 
 ```
 { 
-    channel_access_code : '(your_user_code)',
-    channel_access_api_key : '(your_api_key)',
+    user_code : '(your_user_code)',
+    api_key : '(your_api_key)',
     restaurant_number : '(specific restaurant number)'
 }
 ```
@@ -165,7 +165,7 @@ As would appear in a script
 ```
     let api_params = {
       user_code : '(your_user_code)',
-      channel_access_api_key : '(your_api_key)', 
+      api_key : '(your_api_key)', 
       restaurant_number : 'EN044999999'
     };
 
@@ -184,8 +184,8 @@ As would appear in an Angular service
  getRestaurantDetail(user_code, api_key, restaurant_number) {
     return this.http.post('https://api.restaurantcollective.io/api/restaurant_detail',
       { 
-        channel_access_code : '(your_user_code)',
-        channel_access_api_key : '(your_api_key)', 
+        user_code : '(your_user_code)',
+        api_key : '(your_api_key)', 
         restaurant_number
     }
  }
@@ -200,8 +200,8 @@ These settings are required in the POST request body. If testing from Postman or
 * **To return detail content for one restaurant**
 ```
 { 
-    channel_access_code : 'TT9999',
-    channel_access_api_key : 'TESTAPIKEYASISSUEDBYRDLBYCHANNEL'
+    user_code : 'TT9999',
+    api_key : 'TESTAPIKEYASISSUEDBYRDLBYCHANNEL'
     restaurant_number : 'EN044999999'
 }
 ```
