@@ -14,30 +14,48 @@ Returns a list of restaurants to which this channel has subscribed
 
   `NONE`
 
+
 * **URL Body**
 
 ```
 { 
     user_code : '(your_user_code)',
     api_key : '(your_api_key)',
-    sort_field : '(name | number)',
-    limit : '(n, max 100)',
-    offset : '(n, default 0)'
+    limit : (n, max 100),
+    offset : (n, default 0),
+    lat: (n.nnnnnn)
+    lng: (n.nnnnnn)
+    boundary: (n.nnn, default 20.000)
+    filter_field: '(field_name)'
+    filter_text: '(filter_text)'
 }
 ```
 
 * **Compulsory Parameters**
 
-    * your_user_code (string) - as specified by RDL
-    * your_api_key (string) - as specified by RDL
+  * your_ user_code (string) - as specified by RDL
+  * your_ api_key (string) - as specified by RDL
 
 
 * **Optional Parameters**
 
-  * sort_field (string) - 'name' or 'number' (default 'name', ascending)
-  * limit (number) - the number records to return (max 100)
-  * offset (number) - record offset to allow multiple calls (default 0)  
-    
+
+* limit (integer) - the number records to return (max 100)
+* offset (integer) - record offset to allow multiple calls (default 0)
+* lat (float) - must be in decimal format ±d.ddddddd
+* lng (float) - must be in decimal format ±d.ddddddd
+* boundary (float) - incude only restaurants that are within a specified radius (km)
+* filter_field (string) - 'cuisine' | 'postcode' | 'county' (default 'cuisine')
+* filter_text (string) - text to filter by, can be a partial completion (e.g. 'OX' will search for all OX*) from the start of the text
+
+
+* **Notes**
+
+
+* The default order for a returned set of restaurants is by distance from lat, lng, ascending.
+* Distance is calculated as absolute 'as the crow flies', not as driving or walking distance.
+* If either lat or lng is absent, then the set is ordered by restaurant name and the full set is returned.
+* Boundary only operates if lat and lng have been supplied. If not, then if boundary is either 0 or absent, the full set will be returned.
 
 ---
 
@@ -49,11 +67,17 @@ Returns a list of restaurants to which this channel has subscribed
 
 ```
 {    
-    restaurants : restaurants,
+    count: n,
+    offset: n,
+    cusines: { cuisines },
+    lat: n.nnnnnn,
+    lng: n.nnnnnn,
+    total: n,
+    restaurants : { restaurants },
     status: 'OK',
     accessed: now,
     info : {
-        "version": "V1.1beta",
+        "version": "V1.0beta",
         "release": "28/04/22",
         "tag": "RDL-API"
     }
@@ -77,6 +101,10 @@ Where *restaurants* is a JSON structure that contains an array of summary restau
 - **cuisine_1** *string*
 - **last_updated** *string*
 
+Where *cuisines* is a JSON structure that contains a summary array of cuisine records that are contained in the restaurants array, each of which has the following fields:
+
+- **cuisine** *string*
+- **count** *number*
 
 
 **Error Responses**
@@ -149,9 +177,13 @@ As would appear in a script
     let api_params = {
       user_code : '(your_user_code)',
       api_key : '(your_api_key)', 
-      sort_field : 'number',
       limit : 10,
-      offset : 0
+      offset : 0,
+      lat: 51.7529
+      lng: -1.25364
+      boundary: 5.00
+      filter_field: 'cuisine'
+      filter_text: 'British'
     };
 
     let xhr_bkg_request = new XMLHttpRequest();
@@ -166,7 +198,7 @@ As would appear in a script
 As would appear in an Angular service
 
 ```
- getRestaurants(user_code, api_key, sort_field, limit, offset) {
+ getRestaurants(user_code, api_key, limit, offset, lat, lng, boundary, filter_field, filter_text) {
     return this.http.post('https://api.restaurantcollective.io/aoi/restaurants',
       { 
         user_code : '(your_user_code)',
@@ -200,6 +232,12 @@ returns (count is the number of restaurants returned, offset is the index of the
   count: 2,
   offset: 0,
   total: 2,
+  cuisines: {
+    0: {
+      cuisine: "British",
+      count: 2
+      }
+    }
   restaurants: {
     0: {
       address_1: "Hinton in the Hedges"
@@ -236,5 +274,20 @@ returns (count is the number of restaurants returned, offset is the index of the
       website: "https://restaurantcollective.org.uk"
     }
   }
+}
+```
+
+* **To return list of restaurants for this channel that are within 3.0km of the given lat, lng, just the closest 5 records**
+
+```
+{ 
+    user_code : 'TT9999',
+    api_key : 'TESTAPIKEYASISSUEDBYRDLBYCHANNEL'
+    sort_field : 'number',
+    limit : 5,
+    offset : 0,
+    lat: 51.7529
+    lng: -1.25364
+    boundary: 3.00
 }
 ```
