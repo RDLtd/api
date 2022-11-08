@@ -45,7 +45,7 @@ Returns a list of restaurants to which this channel has subscribed
 * lat (float) - must be in decimal format ±d.ddddddd
 * lng (float) - must be in decimal format ±d.ddddddd
 * boundary (float) - incude only restaurants that are within a specified radius (km)
-* filter_field (string) - 'cuisine' | 'postcode' | 'county' (default 'cuisine')
+* filter_field (string) - 'cuisine' / 'postcode' / 'county' (default 'cuisine')
 * filter_text (string) - text to filter by, can be a partial completion (e.g. 'OX' will search for all OX*) from the start of the text
 
 
