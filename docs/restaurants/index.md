@@ -39,23 +39,21 @@ Returns a list of restaurants to which this channel has subscribed
 
 * **Optional Parameters**
 
-
-* limit (integer) - the number records to return (max 100)
-* offset (integer) - record offset to allow multiple calls (default 0)
-* lat (float) - must be in decimal format ±d.ddddddd
-* lng (float) - must be in decimal format ±d.ddddddd
-* boundary (float) - incude only restaurants that are within a specified radius (km)
-* filter_field (string) - 'cuisine' / 'postcode' / 'county' (default 'cuisine')
-* filter_text (string) - text to filter by, can be a partial completion (e.g. 'OX' will search for all OX*) from the start of the text
+  * limit (integer) - the number records to return (max 100)
+  * offset (integer) - record offset to allow multiple calls (default 0)
+  * lat (float) - must be in decimal format ±d.ddddddd
+  * lng (float) - must be in decimal format ±d.ddddddd
+  * boundary (float) - include only restaurants that are within a specified radius (km)
+  * filter_field (string) - 'cuisine' / 'postcode' / 'county' (default 'cuisine')
+  * filter_text (string) - text to filter by, can be a partial completion (e.g. 'OX' will search for all OX*) from the start of the text
 
 
 * **Notes**
 
-
-* The default order for a returned set of restaurants is by distance from lat, lng, ascending.
-* Distance is calculated as absolute 'as the crow flies', not as driving or walking distance.
-* If either lat or lng is absent, then the set is ordered by restaurant name and the full set is returned.
-* Boundary only operates if lat and lng have been supplied. If not, then if boundary is either 0 or absent, the full set will be returned.
+  * The default order for a returned set of restaurants is by distance from lat, lng, ascending.
+  * Distance is calculated as absolute 'as the crow flies', not as driving or walking distance.
+  * If either lat or lng is absent, then the set is ordered by restaurant name and the full set is returned.
+  * Boundary only operates if lat and lng have been supplied. If not, then if boundary is either 0 or absent, the full set will be returned.
 
 ---
 
@@ -77,8 +75,8 @@ Returns a list of restaurants to which this channel has subscribed
     status: 'OK',
     accessed: now,
     info : {
-        "version": "V1.0beta",
-        "release": "28/04/22",
+        "version": "V2.0beta",
+        "release": "08/11/22",
         "tag": "RDL-API"
     }
 }
@@ -119,8 +117,8 @@ Where *cuisines* is a JSON structure that contains a summary array of cuisine re
     status : 'FAIL',
     accessed : (datetime),
     api_version : {
-        version : 'V1.0beta',
-        release : '28/04/22',
+        version: 'V2.0beta',
+        release: '08/11/22',
         tag : 'RDL_API'
     }
 }
@@ -136,9 +134,9 @@ Where *cuisines* is a JSON structure that contains a summary array of cuisine re
     status : 'FORBIDDEN',
     accessed : (datetime),
     api_version : {
-        "version": "V1.1beta",
-        "release": "28/04/22",
-        "tag": "RDL-API"
+        version: 'V2.0beta',
+        release: '08/11/22',
+        tag : 'RDL_API'
     }
 }
 ```
@@ -157,9 +155,9 @@ Error texts can also be `'No restaurants authorised for this api user'`,
     status : 'FAIL',
     accessed : (datetime),
     api_version : {
-        "version": "V1.1beta",
-        "release": "28/04/22",
-        "tag": "RDL-API"
+        version: 'V2.0beta',
+        release: '08/11/22',
+        tag : 'RDL_API'
     }
 }
 ```
@@ -273,6 +271,13 @@ returns (count is the number of restaurants returned, offset is the index of the
       telephone: "+44 7734038999"
       website: "https://restaurantcollective.org.uk"
     }
+  }
+  status : 'OK',
+  accessed : (datetime),
+  api_version : {
+      version: 'V2.0beta',
+      release: '08/11/22',
+      tag : 'RDL_API'
   }
 }
 ```
